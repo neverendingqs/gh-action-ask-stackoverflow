@@ -44,7 +44,7 @@ async function main() {
         `## [${title}](${link})\n`,
 
         '<details>',
-        '<summary>Question Text</summary>\n',
+        '<summary>Question</summary>\n',
         `${body}\n`,
         '</details>',
 
