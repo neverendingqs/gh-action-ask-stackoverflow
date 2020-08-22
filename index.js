@@ -17,7 +17,7 @@ async function getSoAnswers(questionId) {
 }
 
 function formatSoAnswer({ answer_id, body, owner, score }) {
-  return `### [By \`${owner.display_name}\` (Votes: ${score})](https://stackoverflow.com/a/${answer_id})\n${body}`;
+  return `### [By \`${owner.display_name}\` (Votes: ${score})](https://stackoverflow.com/a/${answer_id})\n${body}\n`;
 }
 
 async function main() {
@@ -43,7 +43,7 @@ async function main() {
       const entry = [
         `## [${title}](${link})`,
         '<details>',
-        '<summary>Answers</summary>',
+        '<summary>Answers</summary>\n',
         answers.map(formatSoAnswer),
         '</details>'
       ];
