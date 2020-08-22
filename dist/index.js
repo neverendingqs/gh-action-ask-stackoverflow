@@ -176,6 +176,7 @@ async function main() {
     const { comment, issue, repository } = github.context.payload;
 
     if(!comment.body.startsWith(prefix)) {
+      console.log(`Comment '${comment.body}' did not begin with '${prefix}'. No action taken.`);
       return;
     }
 
