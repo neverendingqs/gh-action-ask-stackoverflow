@@ -207,7 +207,12 @@ async function main() {
 
       const entry = [
         `## [${title}](${link})\n`,
+
+        '<details>',
+        '<summary>Question Text</summary>\n',
         `${body}\n`,
+        '</details>',
+
         '<details>',
         '<summary>Answers</summary>\n',
         answers.map(formatSoAnswer).join('\n'),
