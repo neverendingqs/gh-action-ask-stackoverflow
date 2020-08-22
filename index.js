@@ -32,7 +32,7 @@ async function main() {
         acc.push(...entry, '');
         return acc;
       },
-      [`# ${query}`]
+      [`# Results for \`${query}\``]
     );
 
     await octokit.issues.createComment({
