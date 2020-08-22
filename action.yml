@@ -1,5 +1,9 @@
 name: Ask Stack Overflow GitHub Action
-description: A GitHub Action for asking questions on Stack Overflow
+description: A GitHub Action for asking questions on Stack Overflow  ​‌‌​​‌​‌ ​‌‌‌​‌‌​ ​‌‌​​‌​‌ ​‌‌‌​​‌​ ​‌‌​​‌​‌ ​‌‌​‌‌‌​ ​‌‌​​‌​​ ​‌‌​‌​​‌ ​‌‌​‌‌‌​ ​‌‌​​‌‌‌ ​‌‌‌​​​‌ ​‌‌‌​​‌‌
+inputs:
+  github-token:
+    description: GitHub token used to authenticate request (e.g. ${{ secrets.GITHUB_TOKEN }}).
+    required: true
 runs:
   using: node12
   main: dist/index.js
