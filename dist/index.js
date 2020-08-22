@@ -169,6 +169,22 @@ const fetch = __webpack_require__(454);
 
 const prefix = '/so ';
 
+async function getSoQuestions(query) {
+  const response = await fetch(`https://api.stackexchange.com/2.2/search/advanced?pagesize=3&order=desc&sort=relevance&q=${encodeURIComponent(query)}&site=stackoverflow`);
+  const { items } = await response.json();
+  return items;
+}
+
+async function getSoAnswers(questionId) {
+  const response = await fetch(`https://api.stackexchange.com/2.2/questions/${questionId}/answers?pagesize=3&order=desc&sort=votes&site=stackoverflow&filter=withbody`);
+  const { items } = await response.json();
+  return items;
+}
+
+function formatSoAnswer({ answer_id, body, owner, score }) {
+  return `### [By \`${owner.display_name}\` (Votes: ${score})](https://stackoverflow.com/a/${answer_id})\n${body}`;
+}
+
 async function main() {
   const githubToken = core.getInput('github-token');
   const octokit = github.getOctokit(githubToken);
@@ -182,23 +198,23 @@ async function main() {
     }
 
     const query = comment.body.substring(prefix.length);
+    const questions = await getSoQuestions(query);
 
-    const response = await fetch(`https://api.stackexchange.com/2.2/search/advanced?pagesize=3&order=desc&sort=relevance&q=${encodeURIComponent(query)}&site=stackoverflow`);
-    const { items } = await response.json();
+    const entries = [`# Results for \`${query}\``];
 
-    const entries = items.reduce(
-      (acc, { link, title }) => {
-        const entry = [
-          `## [${title}](${link})`,
-          '<details>',
-          '<summary>Answers</summary>',
-          '</details>'
-        ];
-        acc.push(...entry, '');
-        return acc;
-      },
-      [`# Results for \`${query}\``]
-    );
+    for(const { link, question_id, title } of questions) {
+      const answers = await getSoAnswers(question_id);
+
+      const entry = [
+        `## [${title}](${link})`,
+        '<details>',
+        '<summary>Answers</summary>',
+        answers.map(formatSoAnswer),
+        '</details>'
+      ];
+
+      entries.push(...entry, '');
+    }
 
     await octokit.issues.createComment({
       owner: repository.owner.login,

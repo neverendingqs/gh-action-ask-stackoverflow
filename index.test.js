@@ -201,7 +201,7 @@ const issueCommentCreatedEvent = {
 };
 
 // https://api.stackexchange.com/docs/advanced-search#pagesize=10&order=desc&sort=relevance&q=github%20actions&filter=default&site=stackoverflow&run=true
-const stackOverflowQueryResultsEvent = {
+const stackOverflowQuestionsResponse = {
   "items": [
     {
       "tags": [
@@ -468,3 +468,65 @@ const stackOverflowQueryResultsEvent = {
   "quota_max": 10000,
   "quota_remaining": 9971
 };
+
+// https://api.stackexchange.com/2.2/questions/59241249/answers?pagesize=3&order=desc&sort=votes&site=stackoverflow&filter=withbody
+const stackOVerflowAnswersResponse = {
+	"items": [{
+		"owner": {
+			"reputation": 6339,
+			"user_id": 469153,
+			"user_type": "registered",
+			"accept_rate": 71,
+			"profile_image": "https://www.gravatar.com/avatar/c00a453db590bda7a0120281d0a12f62?s=128&d=identicon&r=PG",
+			"display_name": "iirekm",
+			"link": "https://stackoverflow.com/users/469153/iirekm"
+		},
+		"is_accepted": false,
+		"score": 15,
+		"last_activity_date": 1580396341,
+		"creation_date": 1580396341,
+		"answer_id": 59988803,
+		"question_id": 59241249,
+		"content_license": "CC BY-SA 4.0",
+		"body": "<p>There are tools like the already-mentioned <code>act</code>, but they are not perfect.\nYou are not alone with this issue. Similar problems are:</p>\n\n<ul>\n<li>how to test Jenkins builds locally</li>\n<li>how to test GitLab CI builds locally</li>\n<li>how to test Circle CI builds locally</li>\n<li>how to test XXXX builds locally</li>\n</ul>\n\n<p>And my solution for these problems is:</p>\n\n<ul>\n<li>avoid functionalities provided by your CI tools (GitHub Actions, Gitlab CI, etc)</li>\n<li>write as much as possible in CI-agnostic way (BASH scripts, PowerShell scripts, Gradle scripts, NPM scripts, Dockerfiles, Ansible scripts - anything you know)</li>\n<li>invoke those scripts from your CI tool. In GitHub actions: <code>run: your\ncommand to run</code></li>\n</ul>\n"
+	}, {
+		"owner": {
+			"reputation": 2145,
+			"user_id": 3593896,
+			"user_type": "registered",
+			"profile_image": "https://i.stack.imgur.com/yJpxY.jpg?s=128&g=1",
+			"display_name": "Webber",
+			"link": "https://stackoverflow.com/users/3593896/webber"
+		},
+		"is_accepted": false,
+		"score": 9,
+		"last_activity_date": 1586791381,
+		"last_edit_date": 1586791381,
+		"creation_date": 1582021871,
+		"answer_id": 60278805,
+		"question_id": 59241249,
+		"content_license": "CC BY-SA 4.0",
+		"body": "<p>You can use <a href=\"https://github.com/nektos/act\" rel=\"noreferrer\">nektos/act</a> which supports yaml syntax since <a href=\"https://github.com/nektos/act/releases/tag/v0.2.0\" rel=\"noreferrer\">0.2.0</a> (prerelease).</p>\n\n<p>Check out their <a href=\"https://github.com/nektos/act/releases/\" rel=\"noreferrer\">latest</a> release.</p>\n"
+	}, {
+		"owner": {
+			"reputation": 2449,
+			"user_id": 354306,
+			"user_type": "registered",
+			"accept_rate": 74,
+			"profile_image": "https://www.gravatar.com/avatar/e8a87b57f88343a0cd8b3f8e415016e6?s=128&d=identicon&r=PG",
+			"display_name": "Jubair",
+			"link": "https://stackoverflow.com/users/354306/jubair"
+		},
+		"is_accepted": false,
+		"score": 3,
+		"last_activity_date": 1580429808,
+		"creation_date": 1580429808,
+		"answer_id": 59996378,
+		"question_id": 59241249,
+		"content_license": "CC BY-SA 4.0",
+		"body": "<p>your best bet is <a href=\"https://github.com/nektos/act\" rel=\"nofollow noreferrer\">https://github.com/nektos/act</a> however it doesn't support yaml syntax yet, though there is a lot of interest aka: <a href=\"https://github.com/nektos/act/issues/80\" rel=\"nofollow noreferrer\">https://github.com/nektos/act/issues/80</a> <a href=\"https://github.com/nektos/act/issues/76\" rel=\"nofollow noreferrer\">https://github.com/nektos/act/issues/76</a> and <a href=\"https://github.com/nektos/act/issues/74\" rel=\"nofollow noreferrer\">https://github.com/nektos/act/issues/74</a></p>\n\n<p>Gitlab has <code>gitlab-runner exec docker job-name</code> but that's Gitlab :)</p>\n"
+	}],
+	"has_more": false,
+	"quota_max": 300,
+	"quota_remaining": 243
+}
