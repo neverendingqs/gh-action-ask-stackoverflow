@@ -197,6 +197,13 @@ async function main() {
       return;
     }
 
+    await octokit.reactions.createForIssueComment({
+      owner: repository.owner.login,
+      repo: repository.name,
+      comment_id: comment.id,
+      content: '+1',
+    });
+
     const query = comment.body.substring(prefix.length);
     const questions = await getSoQuestions(query);
 
