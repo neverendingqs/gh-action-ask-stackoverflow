@@ -166,18 +166,26 @@ module.exports = require("os");
 const core = __webpack_require__(470);
 const github = __webpack_require__(469);
 
+const prefix = '/so ';
+
 async function main() {
   const githubToken = core.getInput('github-token');
   const octokit = github.getOctokit(githubToken);
 
   try {
-    const { issue, repository } = github.context.payload;
+    const { comment, issue, repository } = github.context.payload;
+
+    if(!comment.body.startsWith(prefix)) {
+      return;
+    }
+
+    const query = comment.body.substring(prefix.length);
 
     await octokit.issues.createComment({
       owner: repository.owner.login,
       repo: repository.name,
       issue_number: issue.number,
-      body: 'Received!',
+      body: `Received query '${query}!'`
     });
 
   } catch (error) {

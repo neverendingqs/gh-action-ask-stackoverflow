@@ -1,4 +1,4 @@
-const testEvent = {
+const issueCommentCreatedEvent = {
   "action": "created",
   "comment": {
     "author_association": "OWNER",
@@ -198,4 +198,273 @@ const testEvent = {
     "type": "User",
     "url": "https://api.github.com/users/neverendingqs"
   }
+};
+
+// https://api.stackexchange.com/docs/advanced-search#pagesize=10&order=desc&sort=relevance&q=github%20actions&filter=default&site=stackoverflow&run=true
+const stackOverflowQueryResultsEvent = {
+  "items": [
+    {
+      "tags": [
+        "github-actions"
+      ],
+      "owner": {
+        "reputation": 28296,
+        "user_id": 300224,
+        "user_type": "registered",
+        "accept_rate": 68,
+        "profile_image": "https://i.stack.imgur.com/PFB2V.jpg?s=128&g=1",
+        "display_name": "William Entriken",
+        "link": "https://stackoverflow.com/users/300224/william-entriken"
+      },
+      "is_answered": true,
+      "view_count": 3571,
+      "answer_count": 3,
+      "score": 16,
+      "last_activity_date": 1586791381,
+      "creation_date": 1575852513,
+      "last_edit_date": 1582022111,
+      "question_id": 59241249,
+      "content_license": "CC BY-SA 4.0",
+      "link": "https://stackoverflow.com/questions/59241249/how-to-run-github-actions-workflows-locally",
+      "title": "How to run GitHub Actions workflows locally?"
+    },
+    {
+      "tags": [
+        "github",
+        "github-actions"
+      ],
+      "owner": {
+        "reputation": 91,
+        "user_id": 12564615,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/112394cab32987e17126d9da81aa7a82?s=128&d=identicon&r=PG&f=1",
+        "display_name": "newAngs",
+        "link": "https://stackoverflow.com/users/12564615/newangs"
+      },
+      "is_answered": true,
+      "view_count": 402,
+      "accepted_answer_id": 59467447,
+      "answer_count": 1,
+      "score": 2,
+      "last_activity_date": 1577183683,
+      "creation_date": 1577178533,
+      "question_id": 59466378,
+      "content_license": "CC BY-SA 4.0",
+      "link": "https://stackoverflow.com/questions/59466378/github-actions-angular-cli",
+      "title": "Github Actions Angular-cli"
+    },
+    {
+      "tags": [
+        "github",
+        "graphql",
+        "github-actions"
+      ],
+      "owner": {
+        "reputation": 278654,
+        "user_id": 53013,
+        "user_type": "registered",
+        "accept_rate": 78,
+        "profile_image": "https://www.gravatar.com/avatar/6d43da5df0e52fc31c55e6a227bb23f4?s=128&d=identicon&r=PG",
+        "display_name": "Daniel C. Sobral",
+        "link": "https://stackoverflow.com/users/53013/daniel-c-sobral"
+      },
+      "is_answered": true,
+      "view_count": 62,
+      "answer_count": 1,
+      "score": 1,
+      "last_activity_date": 1592313814,
+      "creation_date": 1586890936,
+      "last_edit_date": 1592313814,
+      "question_id": 61215243,
+      "content_license": "CC BY-SA 4.0",
+      "link": "https://stackoverflow.com/questions/61215243/github-actions-v4-api",
+      "title": "Github Actions v4 API?"
+    },
+    {
+      "tags": [
+        "github",
+        "github-actions",
+        "building-github-actions"
+      ],
+      "owner": {
+        "reputation": 137,
+        "user_id": 4700717,
+        "user_type": "registered",
+        "accept_rate": 86,
+        "profile_image": "https://i.stack.imgur.com/qlQnn.png?s=128&g=1",
+        "display_name": "Ivo Valchev",
+        "link": "https://stackoverflow.com/users/4700717/ivo-valchev"
+      },
+      "is_answered": true,
+      "view_count": 91,
+      "answer_count": 1,
+      "score": 1,
+      "last_activity_date": 1589571991,
+      "creation_date": 1589539772,
+      "question_id": 61817446,
+      "content_license": "CC BY-SA 4.0",
+      "link": "https://stackoverflow.com/questions/61817446/github-actions-defaults-setting",
+      "title": "GitHub Actions defaults setting"
+    },
+    {
+      "tags": [
+        "maven",
+        "github",
+        "maven-release-plugin",
+        "github-actions"
+      ],
+      "owner": {
+        "reputation": 57,
+        "user_id": 8152821,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/fb398422a4ab86807ff37f8bf7c2107d?s=128&d=identicon&r=PG",
+        "display_name": "user8152821",
+        "link": "https://stackoverflow.com/users/8152821/user8152821"
+      },
+      "is_answered": false,
+      "view_count": 540,
+      "answer_count": 0,
+      "score": 2,
+      "last_activity_date": 1573021017,
+      "creation_date": 1570337635,
+      "last_edit_date": 1573021017,
+      "question_id": 58254332,
+      "content_license": "CC BY-SA 4.0",
+      "link": "https://stackoverflow.com/questions/58254332/maven-release-from-github-actions",
+      "title": "Maven release from Github Actions"
+    },
+    {
+      "tags": [
+        "github",
+        "github-actions"
+      ],
+      "owner": {
+        "reputation": 10713,
+        "user_id": 894067,
+        "user_type": "registered",
+        "accept_rate": 68,
+        "profile_image": "https://www.gravatar.com/avatar/7503014a9e8a710b63b3f76d64d6d3e3?s=128&d=identicon&r=PG",
+        "display_name": "Charlie Fish",
+        "link": "https://stackoverflow.com/users/894067/charlie-fish"
+      },
+      "is_answered": true,
+      "view_count": 984,
+      "answer_count": 3,
+      "score": 8,
+      "last_activity_date": 1597243527,
+      "creation_date": 1573753504,
+      "question_id": 58862864,
+      "content_license": "CC BY-SA 4.0",
+      "link": "https://stackoverflow.com/questions/58862864/github-actions-ci-conditional-regex",
+      "title": "GitHub Actions CI Conditional Regex"
+    },
+    {
+      "tags": [
+        "github",
+        "github-actions"
+      ],
+      "owner": {
+        "reputation": 1842,
+        "user_id": 919166,
+        "user_type": "registered",
+        "accept_rate": 75,
+        "profile_image": "https://www.gravatar.com/avatar/d858d685cc1c58e779128cce7146e2c6?s=128&d=identicon&r=PG",
+        "display_name": "aborilov",
+        "link": "https://stackoverflow.com/users/919166/aborilov"
+      },
+      "is_answered": true,
+      "view_count": 22085,
+      "accepted_answer_id": 58035262,
+      "answer_count": 11,
+      "score": 43,
+      "last_activity_date": 1597284253,
+      "creation_date": 1569003320,
+      "question_id": 58033366,
+      "content_license": "CC BY-SA 4.0",
+      "link": "https://stackoverflow.com/questions/58033366/how-to-get-current-branch-within-github-actions",
+      "title": "How to get current branch within github actions"
+    },
+    {
+      "tags": [
+        "github-actions"
+      ],
+      "owner": {
+        "reputation": 3018,
+        "user_id": 295716,
+        "user_type": "registered",
+        "accept_rate": 62,
+        "profile_image": "https://i.stack.imgur.com/kEyts.jpg?s=128&g=1",
+        "display_name": "Antoine",
+        "link": "https://stackoverflow.com/users/295716/antoine"
+      },
+      "is_answered": true,
+      "view_count": 919,
+      "answer_count": 3,
+      "score": 8,
+      "last_activity_date": 1587797590,
+      "creation_date": 1573746597,
+      "last_edit_date": 1573790084,
+      "question_id": 58860769,
+      "content_license": "CC BY-SA 4.0",
+      "link": "https://stackoverflow.com/questions/58860769/call-a-github-action-from-another-github-action",
+      "title": "Call a github action from another github action?"
+    },
+    {
+      "tags": [
+        "github",
+        "continuous-integration",
+        "github-actions"
+      ],
+      "owner": {
+        "reputation": 1682,
+        "user_id": 1872133,
+        "user_type": "registered",
+        "accept_rate": 19,
+        "profile_image": "https://www.gravatar.com/avatar/8ed8e569fbdef7472a396d054870c150?s=128&d=identicon&r=PG",
+        "display_name": "Labithiotis",
+        "link": "https://stackoverflow.com/users/1872133/labithiotis"
+      },
+      "is_answered": true,
+      "view_count": 6521,
+      "accepted_answer_id": 57877438,
+      "answer_count": 2,
+      "score": 46,
+      "last_activity_date": 1579038399,
+      "creation_date": 1565799890,
+      "last_edit_date": 1568266216,
+      "question_id": 57498605,
+      "content_license": "CC BY-SA 4.0",
+      "link": "https://stackoverflow.com/questions/57498605/github-actions-share-workspace-artifacts-between-jobs",
+      "title": "Github actions share workspace/artifacts between jobs?"
+    },
+    {
+      "tags": [
+        "github",
+        "github-actions"
+      ],
+      "owner": {
+        "reputation": 4103,
+        "user_id": 994197,
+        "user_type": "registered",
+        "accept_rate": 70,
+        "profile_image": "https://www.gravatar.com/avatar/9d28ca46ce146502f578c6fd8dd85ffb?s=128&d=identicon&r=PG",
+        "display_name": "tuff",
+        "link": "https://stackoverflow.com/users/994197/tuff"
+      },
+      "is_answered": true,
+      "view_count": 7276,
+      "accepted_answer_id": 56810175,
+      "answer_count": 4,
+      "score": 22,
+      "last_activity_date": 1588369987,
+      "creation_date": 1559603293,
+      "question_id": 56435547,
+      "content_license": "CC BY-SA 4.0",
+      "link": "https://stackoverflow.com/questions/56435547/how-do-i-re-run-github-actions",
+      "title": "How do I re-run Github Actions?"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 10000,
+  "quota_remaining": 9971
 };
