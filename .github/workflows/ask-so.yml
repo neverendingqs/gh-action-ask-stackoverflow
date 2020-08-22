@@ -8,4 +8,4 @@ jobs:
     name: A job to ask Stack Overflow questions
     steps:
     - name: Ask Stack Overflow
-      uses: .
+      uses: ./
