@@ -6,5 +6,6 @@ jobs:
   ask-stackoverflow:
     runs-on: ubuntu-latest
     steps:
-    - name: Ask Stack Overflow
-      uses: ./
+      - uses: actions/checkout@v2
+      - name: Ask Stack Overflow
+        uses: ./
