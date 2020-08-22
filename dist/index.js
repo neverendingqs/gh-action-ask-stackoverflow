@@ -167,7 +167,8 @@ const core = __webpack_require__(470);
 const github = __webpack_require__(469);
 
 async function main() {
-  const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+  const githubToken = core.getInput('github-token');
+  const octokit = github.getOctokit(githubToken);
 
   try {
     const { issue, repository } = github.context.payload;
@@ -187,7 +188,7 @@ async function main() {
 main().catch(err => {
   console.log(err);
   process.exit(-1);
-})
+});
 
 
 /***/ }),
