@@ -1,0 +1,5 @@
+name: Ask Stack Overflow GitHub Action
+description: A GitHub Action for asking questions on Stack Overflow
+runs:
+  using: node12
+  main: index.js

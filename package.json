@@ -1,0 +1,31 @@
+{
+  "name": "gh-action-ask-stackoverflow",
+  "version": "0.0.1",
+  "description": "GitHub Action for asking stackoverflow questions.",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neverendingqs/gh-action-ask-stackoverflow.git"
+  },
+  "keywords": [
+    "github-actions",
+    "stackoverflow"
+  ],
+  "author": "neverendingqs",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/neverendingqs/gh-action-ask-stackoverflow/issues"
+  },
+  "homepage": "https://github.com/neverendingqs/gh-action-ask-stackoverflow#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^4.0.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.3"
+  }
+}
