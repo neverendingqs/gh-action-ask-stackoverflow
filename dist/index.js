@@ -186,7 +186,7 @@ async function main() {
       owner: repository.owner.login,
       repo: repository.name,
       issue_number: issue.number,
-      body: `Received query '${query}!'`
+      body: `Received query '${query}'!`
     });
 
   } catch (error) {
