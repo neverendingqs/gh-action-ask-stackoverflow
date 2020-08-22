@@ -1,0 +1,11 @@
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  ask-stackoverflow:
+    runs-on: ubuntu-latest
+    name: A job to ask Stack Overflow questions
+    steps:
+    - name: Ask Stack Overflow
+      uses: .
