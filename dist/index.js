@@ -165,6 +165,7 @@ module.exports = require("os");
 
 const core = __webpack_require__(470);
 const github = __webpack_require__(469);
+const fetch = __webpack_require__(454);
 
 const prefix = '/so ';
 
@@ -180,13 +181,30 @@ async function main() {
       return;
     }
 
-    const query = comment.body.substring(prefix.length);
+    const query = encodeURIComponent(comment.body.substring(prefix.length));
+
+    const response = await fetch(`https://api.stackexchange.com/2.2/search/advanced?pagesize=3&order=desc&sort=relevance&q=${query}&site=stackoverflow`);
+    const { items } = await response.json();
+
+    const entries = items.reduce(
+      (acc, { link, title }) => {
+        const entry = [
+          `## [${title}](${link})`,
+          '<details>',
+          '<summary>Answers</summary>',
+          '</details>'
+        ];
+        acc.push(...entry);
+        return acc;
+      },
+      [`# ${query}`]
+    );
 
     await octokit.issues.createComment({
       owner: repository.owner.login,
       repo: repository.name,
       issue_number: issue.number,
-      body: `Received query \`${query}\`!`
+      body: entries.join('\n')
     });
 
   } catch (error) {
