@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 const prefix = '/so ';
 
 async function getSoQuestions(query) {
-  const response = await fetch(`https://api.stackexchange.com/2.2/search/advanced?pagesize=3&order=desc&sort=relevance&q=${encodeURIComponent(query)}&site=stackoverflow`);
+  const response = await fetch(`https://api.stackexchange.com/2.2/search/advanced?pagesize=3&order=desc&sort=relevance&q=${encodeURIComponent(query)}&site=stackoverflow&filter=withbody`);
   const { items } = await response.json();
   return items;
 }
@@ -37,14 +37,15 @@ async function main() {
 
     const entries = [`# Results for \`${query}\``];
 
-    for(const { link, question_id, title } of questions) {
+    for(const { body, link, question_id, title } of questions) {
       const answers = await getSoAnswers(question_id);
 
       const entry = [
-        `## [${title}](${link})`,
+        `## [${title}](${link})\n`,
+        `${body}\n`,
         '<details>',
         '<summary>Answers</summary>\n',
-        answers.map(formatSoAnswer),
+        answers.map(formatSoAnswer).join('\n'),
         '</details>'
       ];
 
