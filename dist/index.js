@@ -181,9 +181,9 @@ async function main() {
       return;
     }
 
-    const query = encodeURIComponent(comment.body.substring(prefix.length));
+    const query = comment.body.substring(prefix.length);
 
-    const response = await fetch(`https://api.stackexchange.com/2.2/search/advanced?pagesize=3&order=desc&sort=relevance&q=${query}&site=stackoverflow`);
+    const response = await fetch(`https://api.stackexchange.com/2.2/search/advanced?pagesize=3&order=desc&sort=relevance&q=${encodeURIComponent(query)}&site=stackoverflow`);
     const { items } = await response.json();
 
     const entries = items.reduce(
@@ -194,7 +194,7 @@ async function main() {
           '<summary>Answers</summary>',
           '</details>'
         ];
-        acc.push(...entry);
+        acc.push(...entry, '');
         return acc;
       },
       [`# ${query}`]
