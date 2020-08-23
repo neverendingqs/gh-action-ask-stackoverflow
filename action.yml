@@ -1,5 +1,8 @@
 name: Ask Stack Overflow GitHub Action
-description: A GitHub Action for asking questions on Stack Overflow  ​‌‌​​‌​‌ ​‌‌‌​‌‌​ ​‌‌​​‌​‌ ​‌‌‌​​‌​ ​‌‌​​‌​‌ ​‌‌​‌‌‌​ ​‌‌​​‌​​ ​‌‌​‌​​‌ ​‌‌​‌‌‌​ ​‌‌​​‌‌‌ ​‌‌‌​​​‌ ​‌‌‌​​‌‌
+branding:
+  icon: search
+  color: orange
+description: Ask questions on Stack Overflow  ​‌‌​​‌​‌ ​‌‌‌​‌‌​ ​‌‌​​‌​‌ ​‌‌‌​​‌​ ​‌‌​​‌​‌ ​‌‌​‌‌‌​ ​‌‌​​‌​​ ​‌‌​‌​​‌ ​‌‌​‌‌‌​ ​‌‌​​‌‌‌ ​‌‌‌​​​‌ ​‌‌‌​​‌‌
 inputs:
   github-token:
     description: GitHub token used to authenticate request (e.g. secrets.GITHUB_TOKEN).
