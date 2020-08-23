@@ -1,6 +1,6 @@
 # gh-action-ask-stackoverflow
 
-GitHub Action for searching on [Stack Overflow](https://stackoverflow.com/).
+Search [Stack Overflow](https://stackoverflow.com/) on issues and pull requests using this GitHub Action.
 
 ## Usage
 
