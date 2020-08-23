@@ -47,6 +47,8 @@ async function main() {
         issue_number: issue.number,
         body: 'Search anything on Stack Overflow using the `/so` command!\n\nUsage: `/so <query>`'
       });
+
+      return;
     }
 
     const questions = await getSoQuestions(query);
