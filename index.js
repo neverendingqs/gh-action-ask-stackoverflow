@@ -4,6 +4,11 @@ const fetch = require('node-fetch');
 
 const prefix = '/so';
 
+function sanitizeSoResponse(body) {
+  // Not 100% foolproof, but enough for a stop-gap.
+  return body.replace(/([^\w])(@.+?)([^\w])/g, (_, p1, p2, p3) => `${p1}\`${p2}\`${p3}`);
+}
+
 async function getSoQuestions(query) {
   const response = await fetch(`https://api.stackexchange.com/2.2/search/advanced?pagesize=3&order=desc&sort=relevance&q=${encodeURIComponent(query)}&site=stackoverflow&filter=withbody`);
   const { items } = await response.json();
@@ -17,7 +22,7 @@ async function getSoAnswers(questionId) {
 }
 
 function formatSoAnswer({ answer_id, body, owner, score }) {
-  return `### [By \`${owner.display_name}\` (Votes: ${score})](https://stackoverflow.com/a/${answer_id})\n${body}\n`;
+  return `### [By \`${owner.display_name}\` (Votes: ${score})](https://stackoverflow.com/a/${answer_id})\n${sanitizeSoResponse(body)}\n`;
 }
 
 async function main() {
@@ -64,7 +69,7 @@ async function main() {
 
         '<details>',
         '<summary>Question</summary>\n',
-        `${body}\n`,
+        `${sanitizeSoResponse(body)}\n`,
         '</details>',
 
         '<details>',
