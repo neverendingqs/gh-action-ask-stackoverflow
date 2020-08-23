@@ -2,7 +2,7 @@ name: Ask Stack Overflow GitHub Action
 branding:
   icon: search
   color: orange
-description: Ask questions on Stack Overflow  ​‌‌​​‌​‌ ​‌‌‌​‌‌​ ​‌‌​​‌​‌ ​‌‌‌​​‌​ ​‌‌​​‌​‌ ​‌‌​‌‌‌​ ​‌‌​​‌​​ ​‌‌​‌​​‌ ​‌‌​‌‌‌​ ​‌‌​​‌‌‌ ​‌‌‌​​​‌ ​‌‌‌​​‌‌
+description: Ask questions for Stack Overflow on issues and pull requests.
 inputs:
   github-token:
     description: GitHub token used to authenticate request (e.g. secrets.GITHUB_TOKEN).
