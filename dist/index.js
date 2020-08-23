@@ -167,7 +167,7 @@ const core = __webpack_require__(470);
 const github = __webpack_require__(469);
 const fetch = __webpack_require__(454);
 
-const prefix = '/so ';
+const prefix = '/so';
 
 async function getSoQuestions(query) {
   const response = await fetch(`https://api.stackexchange.com/2.2/search/advanced?pagesize=3&order=desc&sort=relevance&q=${encodeURIComponent(query)}&site=stackoverflow&filter=withbody`);
@@ -204,7 +204,16 @@ async function main() {
       content: '+1',
     });
 
-    const query = comment.body.substring(prefix.length);
+    const query = comment.body.substring(prefix.length).trim();
+    if(query.length === 0) {
+      await octokit.issues.createComment({
+        owner: repository.owner.login,
+        repo: repository.name,
+        issue_number: issue.number,
+        body: 'Search anything on Stack Overflow using the `/so` command!\n\nUsage: `/so <query>`'
+      });
+    }
+
     const questions = await getSoQuestions(query);
 
     const entries = [`# Results for \`${query}\``];
