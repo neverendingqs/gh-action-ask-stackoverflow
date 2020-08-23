@@ -220,11 +220,12 @@ async function main() {
 
     const entries = [`# Results for \`${query}\``];
 
-    for(const { body, link, question_id, title } of questions) {
+    for(const { body, link, question_id, owner, score, title } of questions) {
       const answers = await getSoAnswers(question_id);
 
       const entry = [
-        `## [${title}](${link})\n`,
+        `## [${title} (Votes: ${score})](${link})\n`,
+        `_Asked by ${owner.display_name}_.\n`,
 
         '<details>',
         '<summary>Question</summary>\n',
