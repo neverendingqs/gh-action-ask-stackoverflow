@@ -1,6 +1,6 @@
 {
   "name": "gh-action-ask-stackoverflow",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "GitHub Action for asking stackoverflow questions.",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/neverendingqs/gh-action-ask-stackoverflow#readme",
   "dependencies": {
-    "@actions/core": "^1.2.4",
+    "@actions/core": "^1.2.5",
     "@actions/github": "^4.0.0",
     "node-fetch": "^2.6.0"
   },
